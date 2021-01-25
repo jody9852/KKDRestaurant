@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ddwu.mobile.final_project.ma02_20170986">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.DIAL_PHONE"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_api_key" />
+
+        <activity android:name=".DeveloperInfo"></activity>
+        <activity android:name=".ShowLocationActivity"></activity>
+        <activity android:name=".ShowFavorites"></activity>
+        <activity android:name=".ShowFoodActivity"></activity>
+        <activity android:name=".ShowReviewListActivity"></activity>
+        <activity android:name=".ShowReviewActivity"></activity>
+        <activity android:name=".AddReviewActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".LoadingActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="ddwu.mobile.final_project.ma02_20170986.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <service
+            android:name=".FetchAddressIntentService"
+            android:exported="false"/>
+    </application>
+
+</manifest>
